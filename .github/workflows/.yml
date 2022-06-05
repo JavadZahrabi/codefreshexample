@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ github.sha }}, latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/codefreshexample:01
       
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
